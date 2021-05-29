@@ -21,8 +21,8 @@ background = #eA242424
 foreground = ${colors.white}
 background-alt = #AA223536
 foreground-alt = #55
-primary = #f8941f
-secondary = #f8941f
+primary = #02964F
+secondary = #02964F
 alert = #bd2c40
 
 [variables]
@@ -315,36 +315,12 @@ bar-volume-empty = -
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
-type = custom/menu
+type = custom/script
+exec = echo Power
+click-left = sh $HOME/.config/rofi/powermenu/powermenu.sh
 
-label-open = Power 
-label-open-foreground = ${colors.primary}
-label-close =  cancel
-label-close-foreground = ${colors.primary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-menu-0-2 = suspend
-menu-0-2-exec = menu-open-3
 
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = "xdotool search --classname navigator key ctrl+q; sleep 2; sudo reboot"
-
-menu-2-0 = power off
-menu-2-0-exec = "xdotool search --classname navigator key ctrl+q; sleep 2; sudo poweroff"
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
-menu-3-0 = suspend
-menu-3-0-exec = "systemctl suspend"
-menu-3-1 = cancel
-menu-3-1-exec = menu-open-0
 [module/gputemp]
 type = custom/script
 exec = $HOME/.config/polybar/gpu-temp.sh
